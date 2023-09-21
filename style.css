@@ -1,0 +1,20 @@
+body {
+    background-color: rgb(131, 136, 104);
+    color: rgb(245, 245, 236);
+    background-image: url('Background.jpg');
+    background-size: cover;
+    font-size: 110%;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+.btn {
+    color: rgb(0, 0, 0);
+    background-color: rgb(238, 30, 30);
+    margin-top: 0.5px;
+    padding: 0.1px;
+    float: left;
+    border-radius: 0.1px;
+    }
