@@ -1,8 +1,16 @@
-<div>Mechanical Component Detector</div>
-<button class="btn" type="button" onclick="init()">Start</button>
-<button class="btn" type="button" onclick="init()">Upload</button>
+<nav>
+    <div class="logo">Fault Detector</div>
+    <div class="nav-items">
+      <a href="/">Predict</a> <a href="/">About</a> <a href="/">Contact</a>
+    </div>
+  </nav>
 
+<div>Fault Detector</div>
+<button type="button" onclick="init()" width="300" height="200">Start</button>
+<br><br>
+<input type="file" id="file-upload" />
 <br>
+<button class="btn2" onclick="predict()">Predict</button>
 
 <div id="webcam-container"></div>
 <div id="label-container"></div>
@@ -10,12 +18,11 @@
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
 <script type="text/javascript">
-
     // More API functions here:
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
     // the link to your model provided by Teachable Machine export panel
-    const URL = "https://teachablemachine.withgoogle.com/models/Y8-Oauhpc/";
+    const URL = "https://teachablemachine.withgoogle.com/models/8KM-n71b0/";
 
     let model, webcam, labelContainer, maxPredictions;
 
