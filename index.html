@@ -1,72 +1,146 @@
-<nav>
-    <div class="logo">Fault Detector</div>
-    <div class="nav-items">
-      <a href="/">Predict</a> <a href="/">About</a> <a href="/">Contact</a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style3.css">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script src="./machine.js"></script>
+
+</head>
+
+<body>
+    <nav>
+        <div class="logo">Mechanical Fault Detactor</div>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            
+            <li>
+                <a href="#">Detects</a>
+                <ul>
+                    <li><a href="/Components/Hex_Nuts.html">Bolt & Nuts</a></li>
+                    <li><a href="/Components/Clutches.html">Washers</a></li>
+                    <li><a href="/Components/Rod-Ends.html">Clutches</a></li>
+                    <li><a href="/Components/Washers.html">Rode Ends</a></li>
+                    <li><a href="/Components/Shafts.html">Shaft</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">About</a>
+                <ul>
+                    <li><a href="/Pages/about-us.html">About Us</a></li>
+                    <li><a href="/Pages/about.html">About the App</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Contact</a>
+                <ul>
+                    <li><a href="/Pages/contact.html">Contact</a></li>
+                </ul>
+            </li>
+
+            
+        </ul>
+    </nav>
+    <div class="container">
+        <div>Fault Detector</div>
+        <button type="button" onclick="init()" width="300" height="200">Start</button> 
+        <br><br>
+        <input type="file" id="imageUpload" accept="image/*" name="image" />
+        <img id="imagePreview" style="height: 300px;" />
+        <br> <button class="btn2" onclick="predict()">Predict</button>
+
+
+      
     </div>
-  </nav>
+    <div id="webcam-container"></div>
+    <div id="label-container"></div>
 
-<div>Fault Detector</div>
-<button type="button" onclick="init()" width="300" height="200">Start</button>
-<br><br>
-<input type="file" id="file-upload" />
-<br>
-<button class="btn2" onclick="predict()">Predict</button>
-
-<div id="webcam-container"></div>
-<div id="label-container"></div>
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-<script type="text/javascript">
-    // More API functions here:
-    // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
-
-    // the link to your model provided by Teachable Machine export panel
-    const URL = "https://teachablemachine.withgoogle.com/models/8KM-n71b0/";
-
-    let model, webcam, labelContainer, maxPredictions;
-
-    // Load the image model and setup the webcam
-    async function init() {
-        const modelURL = URL + "model.json";
-        const metadataURL = URL + "metadata.json";
-
-        // load the model and metadata
-        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
-        // or files from your local hard drive
-        // Note: the pose library adds "tmImage" object to your window (window.tmImage)
-        model = await tmImage.load(modelURL, metadataURL);
-        maxPredictions = model.getTotalClasses();
-
-        // Convenience function to setup a webcam
-        const flip = true; // whether to flip the webcam
-        webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
-        await webcam.setup(); // request access to the webcam
-        await webcam.play();
-        window.requestAnimationFrame(loop);
-
-        // append elements to the DOM
-        document.getElementById("webcam-container").appendChild(webcam.canvas);
-        labelContainer = document.getElementById("label-container");
-        for (let i = 0; i < maxPredictions; i++) { // and class labels
-            labelContainer.appendChild(document.createElement("div"));
+     <script type="text/javascript">
+        // More API functions here:
+        // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+    
+        // the link to your model provided by Teachable Machine export panel
+        const URL = "https://teachablemachine.withgoogle.com/models/8KM-n71b0/";
+    
+        let model, webcam, labelContainer, maxPredictions;
+    
+        // Load the image model and setup the webcam
+        async function init() {
+            const modelURL = URL + "model.json";
+            const metadataURL = URL + "metadata.json";
+    
+            // load the model and metadata
+            // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+            // or files from your local hard drive
+            // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+            model = await tmImage.load(modelURL, metadataURL);
+            maxPredictions = model.getTotalClasses();
+    
+            // Convenience function to setup a webcam
+            const flip = true; // whether to flip the webcam
+            webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+            await webcam.setup(); // request access to the webcam
+            await webcam.play();
+            window.requestAnimationFrame(loop);
+    
+            // append elements to the DOM
+            document.getElementById("webcam-container").appendChild(webcam.canvas);
+            labelContainer = document.getElementById("label-container");
+            for (let i = 0; i < maxPredictions; i++) { // and class labels
+                labelContainer.appendChild(document.createElement("div"));
+            }
         }
-    }
-
-    async function loop() {
-        webcam.update(); // update the webcam frame
-        await predict();
-        window.requestAnimationFrame(loop);
-    }
-
-    // run the webcam image through the image model
-    async function predict() {
-        // predict can take in an image, video or canvas html element
-        const prediction = await model.predict(webcam.canvas);
-        for (let i = 0; i < maxPredictions; i++) {
-            const classPrediction =
-                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-            labelContainer.childNodes[i].innerHTML = classPrediction;
+    
+        async function loop() {
+            webcam.update(); // update the webcam frame
+            await predict();
+            window.requestAnimationFrame(loop);
         }
-    }
-</script>
+    
+        // run the webcam image through the image model
+        async function predict() {
+            // predict can take in an image, video or canvas html element
+            const prediction = await model.predict(webcam.canvas);
+            for (let i = 0; i < maxPredictions; i++) {
+                const classPrediction =
+                    prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+                labelContainer.childNodes[i].innerHTML = classPrediction;
+            }
+        }
+    </script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imagePreview').attr('src', e.target.result);
+                    // $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+                    $('#imagePreview').hide();
+                    $('#imagePreview').fadeIn(650);
+                };
+                console.log(input);
+                reader.readAsDataURL(input.files[0]);
+                init().then(() => {
+                    predict();
+                });
+            }
+        }
+        $('#imageUpload').change(function () {
+            readURL(this);
+        });
+    </script>
+
+
+</body>
+
+</html>

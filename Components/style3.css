@@ -1,0 +1,391 @@
+  *{
+    margin: 0;
+    padding: 0;
+    color: rgb(0, 0, 0);
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+  }
+  
+  body{
+    background: #f2f2f2;
+    
+  }
+  
+  nav{
+    background: #1b1b1b;
+  }
+  
+  nav:after{
+    content: '';
+    clear: both;
+    display: table;
+  }
+  
+  nav .logo{
+    float: left;
+    color: white;
+    font-size: 27px;
+    font-weight: 600;
+    line-height: 70px;
+    padding: 60px;
+  }
+  
+  nav ul{
+    float: right;
+    list-style: none;
+    margin-right: 40px;
+    position: relative;
+  }
+  
+  nav ul li{
+    float: left;
+    display: inline-block;
+    background: #1b1b1b;
+    margin: 0 5px;
+  }
+  
+  nav ul li a{
+    color: white;
+    text-decoration: none;
+    line-height: 70px;
+    font-size: 18px;
+    padding: 8px 15px;
+  }
+  
+  nav ul li a:hover{
+  color: cyan;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #33ffff,
+            0 0 5px #66ffff;
+  }
+  
+  nav ul ul li a:hover{
+    color: cyan;
+    box-shadow: none;
+  }
+  
+  nav ul ul{
+    position: absolute;
+    top: 90px;
+    border-top: 3px colid cyan;
+    opacity: 0;
+    visibility: hidden;
+    transition: top .3s;
+  }
+  
+  nav ul ul ul{
+    border-top: none;
+  }
+  
+  nav ul li:hover > ul{
+    top: 70px;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  nav ul ul li{
+    position: relative;
+    margin: 0px;
+    width: 150px;
+    float: none;
+    display: list-item;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+  }
+  
+  nav ul ul li a{
+    line-height: 50px;
+  
+  }
+  
+  .hero {
+    background: #2d6e6b;
+  }
+  
+  .hero-container {
+    display: grid;
+    color: #000000;
+    grid-template-columns: 1fr 1fr;
+    height: 95vh;
+    padding: 3rem calc((100vw - 1300px) / 2);
+  }
+  
+  
+  .column-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: #000000;
+  padding: 0rem 2rem;
+  }
+  
+  .column-left h1 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  }
+  
+  .column-left p {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  }
+  
+  button {
+  padding: 1rem 3rem;
+  font-size: 1rem;
+  border: none;
+  color: #fd0404;
+  background: #000000;
+  cursor: pointer;
+  border-radius: 50px;
+  }
+  
+  
+  .column-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 2rem;
+  }
+  
+  .hero-image {
+  width: 100%;
+  height: 100%;
+  }
+  
+  @media screen and (max-width: 768px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+  }
+  }
+  
+  .section-login {
+    background: black;
+    color: rgb(54, 91, 139);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin: 50px auto;
+  }
+  
+  .section-login input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid white;
+    background: black;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .section-login button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #1b1b1b;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .section-login h1 {
+    margin-bottom: 10px;
+  }
+  
+  .section-login label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 95vh;
+    padding: 3rem calc((100vw - 1300px) / 2);
+  }
+  
+  .column-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: #ffffff;
+    padding: 0rem 2rem;
+  }
+  
+  .column-left h1 {
+    margin-bottom: 1rem;
+    font-size: 3rem;
+  }
+  
+  .column-left p {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+  
+  button {
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    border: none;
+    color: #fd0404;
+    background: #000000;
+    cursor: pointer;
+    border-radius: 50px;
+  }
+  
+  
+  .column-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0rem 2rem;
+  }
+  
+  .hero-image {
+    width: 100%;
+    height: 100%;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  a.read-more {
+    font-weight: bold;
+    color: blue;
+    text-decoration: none;
+  }
+  
+  a.read-more:hover {
+    text-decoration: underline;
+  }
+
+
+
+.text{
+  font-size: 24px;
+  padding: 1.5em;
+}
+.moreText{
+  display: none;
+}
+.rem-more-btn{
+padding: 15px 60px;
+background-color: blue;
+color: black;
+border: none;
+outline: none;
+font-size: 20px;
+cursor: pointer;
+}
+.text.show-more .moreText{
+  display: inline;
+}
+.text.show-more .dots{
+  display: none
+}
+ 
+
+
+
+
+
+
+
+
+/* Reset some default styles */
+body, ul, li, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set a background color and font family */
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+/* Style the navigation bar */
+nav {
+  
+  color: #fff;
+  padding: 10px 0;
+}
+
+nav .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Style the heading section */
+.heading {
+  text-align: center;
+  padding: 40px;
+}
+
+.heading h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+/* Style the container section */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style the "More about Clutches" section */
+.about {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.about-content {
+  flex: 2;
+  padding-left: 20px;
+}
+
+.about h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.about p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
