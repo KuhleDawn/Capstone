@@ -51,9 +51,9 @@
         </ul>
     </nav>
     <div class="container">
-        <div>Fault Detector</div>
+        <h1>Fault Detector</h>
         <button type="button" onclick="init()" width="300" height="200">Start</button> 
-        <br><br>
+        <br>
         <input type="file" id="imageUpload" accept="image/*" name="image" />
         <img id="imagePreview" style="height: 300px;" />
         <br> <button class="btn2" onclick="predict()">Predict</button>
@@ -113,7 +113,7 @@
                     $('#imagePreview').hide();
                     $('#imagePreview').fadeIn(650);
                 };
-                console.log(input);
+                
                 reader.readAsDataURL(input.files[0]);
                 // init().then(() => {
                 //     // predict();

@@ -8,8 +8,9 @@
   
   body{
     background: #f2f2f2;
-    
+    background-image: "Background.jpg";
   }
+  
   
   nav{
     background: #1b1b1b;
@@ -294,11 +295,17 @@ cursor: pointer;
   border-radius: 5px;
   display: block;
   padding: 10px;
-
-
 }
   
-
+.container {
+  max-width: 1200px;
+  background-image: "Background.jpg";
+  margin: 20px auto;
+  padding: 1px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
 
 
 

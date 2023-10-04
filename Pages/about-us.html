@@ -4,85 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style3.css">
-    <title>About Us</title>
+    
     <style>
+      
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
         .person {
-            text-align: center;
-            margin: 20px;
-            display: inline-block;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
         .person img {
-            max-width: 100px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
         }
-        .person p {
-            margin-top: 10px;
+        .person-info {
+            flex: 1;
+        }
+        h2 {
+            margin: 0;
+        }
+        p {
+            margin: 10px 0;
         }
     </style>
 </head>
-<body>
-    <nav>
-        <div class="logo">Mechanical Fault Detactor</div>
-        <ul>
-            <li><a href="/index.html">Home</a></li>
-            
-            <li>
-                <a href="#">Detects</a>
-                <ul>
-                    <li><a href="/Components/Hex_Nuts.html">Bolt & Nuts</a></li>
-                    <li><a href="/Components/Clutches.html">Washers</a></li>
-                    <li><a href="/Components/Rod-Ends.html">Clutches</a></li>
-                    <li><a href="/Components/Washers.html">Rode Ends</a></li>
-                    <li><a href="/Components/Shafts.html">Shaft</a></li>
-                </ul>
-            </li>
+<nav>
+    <div class="logo">Mechanical Fault Detactor</div>
+    <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li>
+            <a href="#">Detects</a>
+            <ul>
+                <li><a href="/Components/Hex_Nuts.html">Bolt & Nuts</a></li>
+                <li><a href="/Components/Clutches.html">Washers</a></li>
+                <li><a href="/Components/Rod-Ends.html">Clutches</a></li>
+                <li><a href="/Components/Washers.html">Rode Ends</a></li>
+                <li><a href="/Components/Shafts.html">Shaft</a></li>
+            </ul>
+        </li>
 
-            <li>
-                <a href="#">About</a>
-                <ul>
-                    <li><a href="/Pages/about-us.html">About Us</a></li>
-                    <li><a href="/Pages/about.html">About the App</a></li>
-                </ul>
-            </li>
+        <li>
+            <a href="#">About</a>
+            <ul>
+                <li><a href="/Pages/about-us.html">About Us</a></li>
+                <li><a href="/Pages/about.html">About the App</a></li>
+            </ul>
+        </li>
 
-            <li>
-                <a href="#">Contact</a>
-                <ul>
-                    <li><a href="/Pages/contact.html">Contact</a></li>
-                </ul>
-            </li>
-            <li><a href="/index-Login.html">Log</a></li>
+        <li>
+            <a href="#">Contact</a>
+            <ul>
+                <li><a href="/Pages/contact.html">Contact</a></li>
+            </ul>
+        </li>
+        <li><a href="/index-Login.html">Logout</a></li>
 
-            
-        </ul>
-    </nav>
-    <h1>About Us</h1>
-    
-    <div class="person about-content">
-        <img src="/png-spider-man.png" alt="Kuhle Mzi">
-        <h2>Mechanical Engineer</h2>
         
+    </ul>
+</nav>
+<body>
+    <header>
+        <h1>About Us</h1>
+    </header>
+    <div class="container">
+        <div class="person">
+            <img src="/Kuhle Mzi.png" alt="Person 1">
+            <div class="person-info">
+                <h2>Kuhle Mzi</h2>
+                <p>Prefession: Mechanical Engineering</p>
+                <p>A passionate mechanical engineer with a strong academic background and a thirst for knowledge.
+                    Currently pursuing my honors degree and attending a Uj/Accenture Work Readiness Program to develop the skills and experience needed to succeed in my chosen field.
+                    <br>
+                    A highly motivated and results-oriented individual with a proven track record of academic success. A team player and always willing to go the extra mile to help colleagues and friend.</p>
+            </div>
+        </div>
+        <div class="person">
+            <img src="/Mfundo.png" alt="Person 2">
+            <div class="person-info">
+                <h2>Mfundo</h2>
+                <p>Position: BSc Hons in Construction Project Management</p>
+                <p>A dedicated and forward-thinking graduate with a passion for construction project management and a commitment to lifelong learning.
+                     I holds a Bachelor of Science degree with Honors in Construction Project Management, showcasing his strong academic foundation in the field. 
+                     Currently, I'm pursuing an exciting educational journey by attending a specialized program offered by the University of Johannesburg (UJ) in collaboration with Accenture.</p>
+            </div>
+        </div>
+        <div class="person">
+            <img src="/Mancoba.png" alt="Person 3">
+            <div class="person-info">
+                <h2>Mancoba Kumalo</h2>
+                <p>Position: Developer</p>
+                <p>A dynamic and highly motivated professional, holding a Bachelor of Technology degree in Electrical Engineering.
+                     With a strong foundation in engineering principles and a passion for entrepreneurship, Mancoba is poised to make a significant impact in both the corporate world and the entrepreneurial sphere.
+                    Currently actively seeking job opportunities to apply my skills and expertise in the field.</p>
+            </div>
+        </div>
+        <div class="person">
+            <img src="/Shepard.png" alt="Person 4">
+            <div class="person-info">
+                <h2>Shepard Ndlovu</h2>
+                <p>Position: Marketing</p>
+                <p>Background: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
     </div>
-
-    <div class="person">
-        <img src="/Components/Clutch.png" alt="Person 2">
-        <h2>Mancoba Khumalo</h2>
-        <p>Electrical Engineer</p>
-    </div>
-
-    <div class="person">
-        <img src="person3.jpg" alt="Person 3">
-        <h2>Mfundo</h2>
-        <p>Quantity Survaying Engineer</p>
-    </div>
-
-    <div class="person">
-        <img src="/png-spider-man.png" alt="Person 4">
-        <h2>Shepard Ndlovu</h2>
-        <p>Mechanical Engineer</p>
-    </div>
-    <footer>
-        <p>Copyright &copy; 2023 Image Processing App</p>
-      </footer>
 </body>
 </html>
