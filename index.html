@@ -11,8 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-    <script src="./machine.js"></script> 
-
+    <!-- <script src="./machine.js"></script>  -->
+ 
 </head>
 
 <body>
@@ -51,7 +51,7 @@
         </ul>
     </nav>
     <div class="container">
-        <h1>Fault Detector</div>
+        <h1>Fault Detector</h1>
         <button type="button" onclick="init()" width="300" height="200">Start</button> 
         <br>
         <input type="file" id="imageUpload" accept="image/*" name="image" />
@@ -60,7 +60,7 @@
 
 
       
-    </div>
+    
     <div id="webcam-container"></div>
     <div id="label-container"></div>
 
@@ -95,6 +95,12 @@
             // predict can take in an image, video or canvas html element
             const img = document.getElementById('imagePreview');
             const prediction = await model.predict(img);
+
+            // Only edit from this point
+            console.log(prediction);
+            
+
+            // end
             for (let i = 0; i < maxPredictions; i++) {
                 const classPrediction =
                     prediction[i].className + ": " + prediction[i].probability.toFixed(2);
@@ -125,7 +131,7 @@
         });
     </script>
 
-
+</div>
 </body>
 
 </html>
